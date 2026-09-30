@@ -1,73 +1,517 @@
-# Habnawi's Electronic, Inc. - Sales Performance Dashboard
+# Gayanara - Revenue Loss Analysis
 
 > This project demonstrates an end-to-end **Data Analytics and Business Intelligence workflow**, starting from data preparation and data modeling to visualization and business insight generation.
 
 ---
 
 ## 1. Business Understanding
+
 ### 1.1 Business Background
 
-**Habnawi's Electronic, Inc.** is a fictional electronics retail company specializing in the sale of various electronic products and technology devices for home, office, and entertainment needs. The company offers a wide range of product categories, such as laptops, smartphones, televisions, computers, accessories, and home appliances from various renowned brands.
+#### Business Overview
 
-Over the past few years, the company has experienced an increase in the number of transactions; however, management still lacks a comprehensive overview of the factors that contribute most significantly to the company's revenue and profit.
+**Gayanara** is a fictional fashion e-commerce retail business that sells a variety of fashion products through an online retail platform. As an e-commerce business, Gayanara generates revenue primarily through completed customer orders. The business operates across different product categories, customer segments, geographic regions, payment methods, and delivery channels. The business maintains several interconnected datasets covering customer information, product information, orders, order items, and customer reviews. These datasets provide an opportunity to analyze not only overall sales performance but also the portion of revenue that fails to be realized due to unsuccessful transactions.
 
----
+The core business process can be illustrated as:
 
-### 1.2 Bussiness Problem
+**Customer → Order → Order Fulfillment → Completed Transaction → Revenue**
 
-Management seeks to identify top-performing product categories, the effectiveness of individual sales channels, profit trends over time, and the countries contributing the highest profits. This information is essential for supporting strategic decision-making regarding product management, marketing, market expansion, and profitability enhancement.
-To address these needs, an Executive Sales Dashboard has been developed; it presents Key Performance Indicators (KPIs) and interactive visualizations, enabling management to monitor business performance rapidly and on a data-driven basis.
+However, not every order reaches the final stage. Some orders may be **cancelled**, while others may be **returned** after the purchase has been completed or fulfilled. These events can reduce the amount of revenue that the business ultimately realizes.
 
----
-
-### 1.3 Project Objectives
-
-This project aims to develop an interactive dashboard that allows stakeholders to monitor business performance and explore sales patterns through data.
-
-The dashboard provides management-level insights into:
-
-- Overall sales performance
-- Revenue and profitability
-- Product category performance
-- Online vs. offline sales contribution
-- Profit trends over time
-- Geographic profitability
-- Performance across different time periods
+Therefore, looking only at total sales or total orders may provide an incomplete picture of business performance.
 
 ---
 
-### 1.4 Bussiness Questions
+#### Revenue and Revenue Loss Context
 
-The analysis was designed to answer the following questions:
+For an e-commerce retailer, revenue performance is influenced not only by the number of products sold but also by the ability to successfully convert orders into realized sales.
 
-1. Overall Performance
+Consider the following simplified example:
 
-    - What are the company's total Revenue, Profit, and Orders?
-    - How does overall business performance change over time?
+> Gayanara receives orders worth Rp1 billion during a particular period. However, Rp100 million of those orders are cancelled or subsequently returned.
 
-2. Product Performance
+Although the business initially recorded Rp1 billion in order value, not all of that value represents revenue that can ultimately be retained by the business.
 
-    - Which product categories generate the highest revenue?
-    - Which categories contribute the least revenue?
-    - How is revenue distributed across product categories?
+This creates an important distinction between:
 
-3. Sales Channel
+* **Revenue generated from successful orders**
+* **Revenue associated with cancelled orders**
+* **Revenue associated with returned orders**
+* **Revenue that is effectively lost as a result of unsuccessful or reversed transactions**
 
-    - How much revenue is generated through Online and Offline transactions?
-    - What is the contribution of each sales channel to total revenue?
+For this project, revenue loss is specifically defined based on **cancelled and returned orders**.
 
-4. Time Analysis
-
-    - How does daily profit change over time?
-    - Are there periods with significant increases or decreases in profit?
-    - How does the moving average help identify the underlying profit trend?
-
-5. Geographic Performance
-
-    - Which countries contribute the most profit?
-    - How is profit distributed across different countries?
+The analysis therefore does not attempt to estimate future or potential sales opportunities. Instead, it focuses on **observed revenue loss within the historical transaction data**.
 
 ---
+
+#### Why Revenue Loss Matters
+
+Revenue loss is important because a business can experience apparently healthy sales activity while still losing a significant portion of its potential realized revenue through cancellations and returns.
+
+For example, two product categories could generate the same gross order value:
+
+| Category   | Order Value | Cancelled/Returned Value | Realized Revenue |
+| ---------- | ----------: | -----------------------: | ---------------: |
+| Category A |      Rp500M |                    Rp20M |           Rp480M |
+| Category B |      Rp500M |                   Rp100M |           Rp400M |
+
+Both categories initially generate the same order value. However, Category B experiences substantially greater revenue loss.
+
+This means that evaluating performance solely through sales volume or gross order value could hide important operational and commercial issues.
+
+Understanding revenue loss allows Gayanara to investigate questions such as:
+
+* Which product categories experience the highest revenue loss?
+* Which products contribute the most to cancelled and returned revenue?
+* Are revenue losses concentrated in particular customer segments?
+* Are certain regions associated with higher cancellation or return rates?
+* Are particular payment methods associated with higher cancellation rates?
+* Are specific couriers associated with higher levels of returned or cancelled orders?
+* How does revenue loss change over time?
+* Which areas should receive further business investigation?
+
+The objective is therefore not simply to measure how much revenue was lost, but to understand **where the loss occurs and what characteristics are associated with it**.
+
+---
+
+### 1.2 Business Problem
+
+#### Problem Statement
+
+Gayanara currently has historical transactional data containing information about customers, products, orders, order items, and reviews. However, overall sales metrics alone do not provide sufficient visibility into the amount of revenue that fails to be realized due to **cancelled and returned orders**.
+
+Cancelled and returned transactions represent situations where the value associated with an order does not ultimately contribute to retained sales revenue in the same way as successful orders.
+
+If these transactions are not analyzed separately, several important business conditions may remain hidden.
+
+For example:
+
+* A product may have high sales but also experience a high amount of cancelled or returned revenue.
+* A category may appear to perform well based on order value but have a relatively high revenue loss rate.
+* A particular geographic area may generate significant revenue while also contributing disproportionately to cancelled or returned orders.
+* Certain payment methods may exhibit higher cancellation rates than others.
+* Certain couriers may be associated with higher return rates.
+* Revenue loss may increase during particular periods even when overall sales remain stable or increase.
+
+Therefore, Gayanara needs a structured analysis that separates **successful revenue from revenue associated with cancelled and returned orders**.
+
+---
+
+#### Specific Business Problem
+
+The primary business problem addressed in this project is:
+
+> **Gayanara lacks visibility into the magnitude, distribution, and characteristics of revenue loss resulting from cancelled and returned orders.**
+
+The analysis focuses specifically on **actual historical revenue loss observed in the dataset**.
+
+The project does **not** attempt to calculate potential revenue loss from:
+
+* stockouts,
+* unavailable products,
+* abandoned carts,
+* customer browsing behavior,
+* lost sales opportunities,
+* unmet demand,
+* or hypothetical future purchases.
+
+This distinction is important because those situations represent **potential or estimated revenue opportunities**, whereas cancelled and returned orders are directly observable in the available transactional data.
+
+---
+
+#### Revenue Loss Scope
+
+Within this project, revenue loss is examined through two primary transaction outcomes:
+
+##### 1. Cancelled Order Revenue
+
+Revenue associated with orders whose status is classified as **cancelled**.
+
+These transactions represent orders that did not proceed to a successful completed purchase.
+
+The analysis investigates:
+
+$$
+Cancelled\ Revenue =
+\sum Subtotal\ of\ Cancelled\ Order\ Items
+$$
+
+depending on the revenue definition established for the dataset.
+
+---
+
+##### 2. Returned Order Revenue
+
+Revenue associated with orders whose status is classified as **returned**.
+
+These transactions represent purchases that were subsequently returned and therefore do not represent retained sales in the same way as successfully completed orders.
+
+The analysis investigates:
+
+$$
+Returned\ Revenue =
+\sum Subtotal\ of\ Returned\ Order\ Items
+$$
+
+---
+
+#### Core Business Impact
+
+The business impact of this problem can be summarized as:
+
+**Cancelled & Returned Orders**
+
+↓
+
+**Revenue Not Retained**
+
+↓
+
+**Lower Realized Revenue**
+
+↓
+
+**Potential Impact on Business Performance**
+
+The purpose of the analysis is to identify where this impact is concentrated so that Gayanara can conduct targeted investigation and develop appropriate operational or commercial responses.
+
+Importantly, the analysis identifies **patterns and associations** in the data. It does not automatically establish that a particular factor is the direct cause of cancellation or return.
+
+For example, if one courier has a higher return rate, the analysis can identify this as a pattern requiring investigation. It should not automatically conclude that the courier caused the returns without additional evidence.
+
+---
+
+### 1.3 Business Objectives
+
+The overall objective of this project is:
+
+> **To analyze and quantify revenue loss associated with cancelled and returned orders at Gayanara, identify the segments and transaction characteristics where revenue loss is concentrated, and provide data-driven insights that can support targeted business investigation and decision-making.**
+
+This objective can be divided into several specific objectives.
+
+#### Objective 1 — Quantify Revenue Loss
+
+Measure the amount of revenue associated with:
+
+* cancelled orders,
+* returned orders,
+* and the combined revenue loss from both transaction outcomes.
+
+This provides management with a clear understanding of the financial magnitude of unsuccessful or reversed transactions.
+
+Key metrics include:
+
+* Total Revenue
+* Completed Revenue
+* Cancelled Revenue
+* Returned Revenue
+* Total Revenue Loss
+* Cancellation Rate
+* Return Rate
+* Revenue Loss Rate
+
+---
+
+#### Objective 2 — Understand Revenue Loss Trends
+
+Analyze how cancellation, return, and revenue loss change over time.
+
+The analysis can identify:
+
+* periods with unusually high revenue loss,
+* monthly or weekly trends,
+* changes in cancellation rate,
+* changes in return rate,
+* and whether revenue loss is increasing or decreasing relative to overall sales.
+
+This allows Gayanara to determine whether revenue loss is a persistent issue or concentrated within particular periods.
+
+---
+
+#### Objective 3 — Identify Products and Categories with High Revenue Loss
+
+Analyze revenue loss across:
+
+* product categories,
+* sub-categories,
+* brands,
+* and individual products.
+
+The objective is to identify products that:
+
+* contribute the largest absolute amount of lost revenue,
+* have high cancellation rates,
+* have high return rates,
+* or exhibit both high sales and high revenue loss.
+
+This distinction is important because the product with the highest **revenue loss amount** may not necessarily have the highest **loss rate**.
+
+For example:
+
+> Product A may lose Rp50 million because of its large sales volume, while Product B may lose only Rp20 million but have a much higher loss rate.
+
+Both represent different business situations and therefore require different interpretations.
+
+---
+
+#### Objective 4 — Identify Customer Segments Associated with Revenue Loss
+
+Analyze revenue loss based on available customer characteristics, including:
+
+* gender,
+* age group,
+* customer location,
+* and other relevant customer attributes.
+
+The objective is to determine whether revenue loss is disproportionately concentrated within particular customer segments.
+
+This can help Gayanara identify customer groups that may require further investigation regarding their purchasing and cancellation/return behavior.
+
+---
+
+#### Objective 5 — Identify Geographic Patterns
+
+Analyze revenue loss by:
+
+* province,
+* city,
+* and other available geographic dimensions.
+
+The objective is to determine whether certain geographic areas contribute disproportionately to:
+
+* cancelled revenue,
+* returned revenue,
+* cancellation rate,
+* return rate,
+* or total revenue loss.
+
+Geographic patterns can provide useful signals for further investigation into fulfillment, delivery, customer behavior, or market-specific conditions.
+
+---
+
+#### Objective 6 — Analyze Transaction and Operational Characteristics
+
+Examine revenue loss across available transaction-related dimensions such as:
+
+* payment method,
+* courier,
+* promo code,
+* discount,
+* and order characteristics.
+
+The objective is to identify whether certain transaction characteristics are associated with higher cancellation or return rates.
+
+These findings should be treated as **associations or patterns**, which can then be investigated further by the relevant business teams.
+
+---
+
+#### Objective 7 — Prioritize Areas for Business Investigation
+
+The final objective is to move beyond descriptive reporting.
+
+The analysis should help Gayanara identify:
+
+> **Which products, categories, customer segments, regions, or transaction characteristics deserve further investigation because they contribute substantially to revenue loss?**
+
+For example, a segment may become a priority for investigation when it combines:
+
+* high revenue contribution,
+* high cancellation/return rate,
+* and high absolute revenue loss.
+
+This approach helps management focus attention on areas with the greatest observed impact rather than treating every segment equally.
+
+---
+
+#### Objective 8 — Develop Actionable Business Recommendations
+
+Based on the identified patterns, the project aims to provide recommendations that can support areas such as:
+
+* order management,
+* product management,
+* customer experience,
+* payment operations,
+* fulfillment,
+* delivery management,
+* and promotional strategy.
+
+Recommendations will be based on observed patterns in the historical data and should serve as a basis for further business investigation rather than being interpreted as definitive causal conclusions.
+
+---
+
+### 1.4 Business Questions
+
+To achieve the objectives above, the analysis is structured around several key business questions.
+
+#### A. Revenue Loss Overview
+
+**BQ1. How much revenue does Gayanara lose from cancelled and returned orders?**
+
+This establishes the overall financial magnitude of the problem.
+
+Supporting questions:
+
+* What is the total revenue generated?
+* How much revenue comes from successful orders?
+* How much revenue is associated with cancelled orders?
+* How much revenue is associated with returned orders?
+* What percentage of total order value is represented by revenue loss?
+
+---
+
+#### B. Cancellation vs Return
+
+**BQ2. Is revenue loss primarily associated with cancellations or returns?**
+
+This separates the two major sources of revenue loss.
+
+The analysis compares:
+
+* Cancelled Orders
+* Returned Orders
+* Cancelled Revenue
+* Returned Revenue
+* Cancellation Rate
+* Return Rate
+
+This helps determine whether Gayanara's observed revenue loss is more concentrated in the pre-transaction cancellation stage or the post-purchase return stage.
+
+---
+
+#### C. Time Trend
+
+**BQ3. How does revenue loss change over time?**
+
+The analysis investigates:
+
+* monthly revenue,
+* cancelled revenue,
+* returned revenue,
+* total revenue loss,
+* cancellation rate,
+* and return rate.
+
+The objective is to identify periods in which revenue loss increases significantly and determine whether those periods coincide with changes in overall sales activity.
+
+---
+
+#### D. Product and Category
+
+**BQ4. Which product categories contribute the most to revenue loss?**
+
+This identifies categories with the largest absolute cancelled and returned revenue.
+
+---
+
+**BQ5. Which products have the highest cancellation and return rates?**
+
+This provides a relative perspective rather than focusing only on absolute revenue.
+
+---
+
+**BQ6. Which products combine high revenue contribution with high revenue loss?**
+
+This question is particularly important for prioritization.
+
+A product with:
+
+* high sales,
+* high cancelled/returned revenue,
+* and a high loss rate
+
+may represent a more significant business concern than a low-revenue product with a high loss rate.
+
+---
+
+#### E. Customer
+
+**BQ7. Which customer segments contribute the most to revenue loss?**
+
+The analysis can examine revenue loss across:
+
+* age groups,
+* gender,
+* customer location,
+* and other available customer attributes.
+
+---
+
+**BQ8. Are cancellation and return rates significantly different across customer segments?**
+
+This investigates whether certain customer groups exhibit different transaction outcomes.
+
+The purpose is not to label a particular customer group as problematic, but to identify patterns that may warrant further investigation.
+
+---
+
+#### F. Geographic
+
+**BQ9. Which provinces and cities contribute the most to cancelled and returned revenue?**
+
+This identifies geographic concentration of revenue loss.
+
+---
+
+**BQ10. Which geographic areas have high revenue contribution but also high revenue loss rates?**
+
+This is useful for prioritization because a high-loss area may also represent an important revenue market.
+
+---
+
+#### G. Payment and Operational Factors
+
+**BQ11. Which payment methods are associated with higher cancellation rates?**
+
+This examines whether cancellation behavior differs across payment methods.
+
+---
+
+**BQ12. Which couriers are associated with higher return rates?**
+
+This identifies potential operational patterns related to delivery channels.
+
+The analysis does not assume that the courier is the cause of the return. Instead, the result can indicate where further operational investigation may be necessary.
+
+---
+
+#### H. Promotion and Discount
+
+**BQ13. How does revenue loss vary across promotional or discount usage?**
+
+This examines whether orders using certain promotional mechanisms exhibit different cancellation or return patterns.
+
+Relevant metrics include:
+
+* Orders with promo codes
+* Orders without promo codes
+* Discount amount
+* Discount rate
+* Cancellation rate
+* Return rate
+* Revenue loss
+
+---
+
+#### I. Prioritization
+
+**BQ14. Which segments should Gayanara prioritize for further investigation?**
+
+The final question combines the findings from the previous analyses.
+
+Potential prioritization dimensions include:
+
+* absolute revenue loss,
+* revenue loss rate,
+* revenue contribution,
+* cancellation rate,
+* return rate,
+* and transaction volume.
+
+The purpose is to identify areas where revenue loss is both **material and concentrated**, allowing business teams to focus their investigation and improvement efforts.
+
+---
+
 
 ## 2. Dataset Overview
 
