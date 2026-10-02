@@ -514,7 +514,7 @@ This relational structure allows transaction-level revenue loss to be analyzed a
 
 ## 5. Dashboard Overview
 
-Link to tableau dashboard: https://public.tableau.com/views/Gayanara_dashboard/Overview?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
+[Link to tableau dashboard](https://public.tableau.com/views/Gayanara_dashboard/Overview?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
 
 
