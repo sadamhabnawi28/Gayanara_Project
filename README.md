@@ -491,8 +491,6 @@ Standardized as dimensions:
 * `city`
 * `province`
 
-Correct data types ensure that **Tableau** can correctly aggregate numerical measures, filter categorical dimensions, and generate time-based analysis.
-
 ---
 
 ### 2.11 Data Integration
