@@ -202,13 +202,13 @@ To achieve the objectives above, the analysis is structured around several key b
 
 The Gayanara Revenue Loss Analysis project uses five interconnected datasets representing different aspects of the e-commerce business:
 
-| Dataset         | Description                                                                 | Key Identifier                                       |
-| --------------- | --------------------------------------------------------------------------- | ---------------------------------------------------- |
-| **customers**   | Contains customer demographic and registration information                  | `customer_id`                                        |
-| **products**    | Contains product attributes, pricing, inventory, and product classification | `product_id`                                         |
-| **orders**      | Contains order-level transaction and operational information                | `order_id`                                           |
-| **order_items** | Contains product-level details for each order                               | `item_id`, `order_id`, `product_id`                  |
-| **reviews**     | Contains customer reviews and ratings associated with products and orders   | `review_id`, `order_id`, `product_id`, `customer_id` |
+| Dataset         | Role      | Description                                                        | Key Identifier                                       |
+| --------------- | --------- |------------------------------------------------------------------- | ---------------------------------------------------- |
+| **customers**   | Dimension | Customer demographic and registration information                  | `customer_id`                                        |
+| **products**    | Dimension | Product attributes, pricing, inventory, and product classification | `product_id`                                         |
+| **orders**      | Dimension      | Order-level transaction and operational information                | `order_id`                                           |
+| **order_items** | Fact | Product-level details for each order                               | `item_id`, `order_id`, `product_id`                  |
+| **reviews**     | Dimension | Customer reviews and ratings associated with products and orders   | `review_id`, `order_id`, `product_id`, `customer_id` |
 
 ---
 
@@ -493,7 +493,7 @@ Standardized as dimensions:
 
 ---
 
-### 2.11 Data Integration
+### 2.7 Data Integration
 
 After individual tables have been cleaned and validated, the datasets are connected based on their relational keys.
 
@@ -503,18 +503,12 @@ The primary relationships are:
 
 This relational structure allows transaction-level revenue loss to be analyzed against multiple business dimensions without unnecessarily duplicating data.
 
-
----
-
-### 4.4 Relationships
-
-The model uses one-to-many (1:*) relationships, where dimension tables represent the "one" side and the Sales fact table represents the "many" side.
-
-| Dimension  | Key          | Fact Table Key | Cardinality | Purpose                       |
-| ---------- | ------------ | -------------- | ----------- | ----------------------------- |
-| `Store`    | `id`         | `StoreKey`     | 1:*         | Store & geographical analysis |
-| `Products` | `ProductKey` | `ProductKey`   | 1:*         | Product analysis              |
-| `Calendar` | `Date`       | `Order Date`   | 1:*         | Time-based analysis           |
+| Dimension       | Key          | Cardinality |
+| --------------- | ------------ | ----------- |
+| **customers**   | `customer_id`| 1:*         |
+| **products**    | `product_id` | 1:*         | 
+| **orders** | `order_id`   | 1:*         |
+| **reviews**     | `order_id`   | 1:*         |
 
 ---
 
