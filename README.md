@@ -196,188 +196,338 @@ To achieve the objectives above, the analysis is structured around several key b
 
 ---
 
-## 2. Dataset Overview
+## 2. Data Preparation
 
-This project uses an open source datasets that represents an electronic retail company. The datasets contains 3 main part with different file extension, Sales.csv, Product.txt, and Country.txt.
+### 2.1 Data Overview
 
-![Dataset Preview](images/dataset_preview.jpg)
+The Gayanara Revenue Loss Analysis project uses five interconnected datasets representing different aspects of the e-commerce business:
+
+| Dataset         | Description                                                                 | Key Identifier                                       |
+| --------------- | --------------------------------------------------------------------------- | ---------------------------------------------------- |
+| **customers**   | Contains customer demographic and registration information                  | `customer_id`                                        |
+| **products**    | Contains product attributes, pricing, inventory, and product classification | `product_id`                                         |
+| **orders**      | Contains order-level transaction and operational information                | `order_id`                                           |
+| **order_items** | Contains product-level details for each order                               | `item_id`, `order_id`, `product_id`                  |
+| **reviews**     | Contains customer reviews and ratings associated with products and orders   | `review_id`, `order_id`, `product_id`, `customer_id` |
 
 ---
 
-## 3. Data Preparations
+### 2.2 Data Preparation Objectives
 
-Raw data was prepared using **Power Query** in **Power BI** to ensure data quality and consistency before the analysis and visualization stages.
+The data preparation process is performed to ensure that the datasets are suitable for reliable analysis and visualization.
 
-The data preparation process included:
-- Data type validation - ensuring dates, numerical values, and categorical fields assigned appropriate data types.
-- Data cleaning - identifying and handling missing, inconsistent, or invalid values.
-- Column transformation - formatting and transforming existing fields to make them suitable for analysis.
-- Data standardization - ensuring consistent values across categorical fields such as product categories, sales channels, and countries.
-- Data validation - checking the transformed dataset to ensure that the resulting data was consistent and ready for modeling.
-- Data preperation for modeling - structuring the cleaned dataset as the foundation for the subsequent data modeling and dashboard development stages.
+The main objectives are to:
 
-For **Country** dataset, since it is in a .txt file without delimiters, it must first be converted using **Python** before undergoing data cleaning with **Power Query**.
-This is the code to convert the **Country** dataset from .txt file to csv file:
+1. Ensure data quality by identifying and handling missing, inconsistent, or invalid values.
+2. Standardize data types and formats so that numerical, categorical, and date fields can be analyzed correctly.
+3. Validate key identifiers and relationships between tables.
+4. Prevent duplicate records from distorting revenue calculations.
+5. Establish consistent definitions for revenue, cancelled orders, returned orders, and revenue loss.
+6. Create analytical fields required for KPI calculations.
+7. Prepare a relational data structure that can be efficiently connected in Tableau.
+8. Ensure that the final dataset accurately represents the business logic defined during the Business Understanding stage.
 
-```python
-import pandas as pd
+---
 
-def preprocess():
-    with open(file) as file:
-        content = file.readlines()
+### 2.3 Data Profiling
 
-    content = [line.strip() for line in content]
-    content = [line.split() for line in content]
+Before performing transformations, the datasets are profiled to understand their structure, quality, and relationships.
 
-    storekeys = [line[0] for line in content][1:]
+The profiling process examines:
 
-    countries = [
-        " ".join(line[1:3])
-        if line[1]  == "United" else line[1] 
-        for line in content
-        ][1:]
+* Number of rows and columns
+* Column names and data types
+* Missing values
+* Duplicate records
+* Unique values
+* Value distributions
+* Minimum and maximum values
+* Potentially invalid values
+* Primary key uniqueness
+* Foreign key consistency
+* Relationships between tables
 
-    states = [
-        " ".join(line[3:])
-        if line[1]  == "United" else " ".join(line[2:]) 
-        for line in content
-        ][1:]
+This stage is important because data quality issues identified early can prevent inaccurate revenue calculations later in the analysis.
 
-    data = {
-        "id":storekeys,
-        "country": countries,
-        "states": states
-    }
+---
 
-    df = pd.DataFrame(data)
-    df.to_csv("store.csv", index=False)
+#### 2.3.1 Customers Table
+
+The `customers` table contains:
+
+* `customer_id`
+* `name`
+* `email`
+* `phone`
+* `city`
+* `province`
+* `registration_date`
+* `gender`
+* `age_group`
+
+The preparation focuses on ensuring that:
+
+* `customer_id` is unique.
+* `Customer` identifiers are not missing.
+* `registration_date` is stored as a valid date.
+* `gender` values are consistently formatted.
+* `age_group` values follow a consistent classification.
+* `City` and `province` names use consistent formatting.
+* Duplicate `customer` records are identified and investigated.
+
+The `customer_id` serves as the primary key for connecting customers to their orders.
+
+---
+
+#### 2.3.2 Products Table
+
+The `products` table contains:
+
+* `product_id`
+* `name`
+* `sub_category`
+* `price_idr`
+* `stock`
+* `brand`
+* `avg_rating`
+* `category`
+* `material`
+
+The preparation focuses on ensuring that:
+
+* `product_id` is unique.
+* `price_idr` is stored as a numeric field.
+* `stock` is stored as a numeric field.
+* `avg_rating` is stored as a numeric field.
+* `Category` and `sub_category` values are standardized.
+* `Brand` names are consistently formatted.
+* `Product` names are checked for duplicates or inconsistent representations.
+* Negative or otherwise invalid numerical values are investigated.
+
+The `product_id` serves as the primary key used to connect product information to `order_items`.
+
+---
+
+#### 2.3.3 Orders Table
+
+The `orders` table is the main order-level transactional dataset.
+
+It contains:
+
+* `order_id`
+* `customer_id`
+* `order_date`
+* `total_amount_idr`
+* `shipping_city`
+* `shipping_province`
+* `shipping_cost_idr`
+* `payment_method`
+* `order_status`
+* `promo_code`
+* `courier`
+* `discount_amount_idr`
+
+The preparation of this table is particularly important because `order_status` determines whether an order contributes to realized revenue or revenue loss.
+
+The preparation focuses on ensuring that:
+
+* `order_id` should uniquely identify each order
+* `customer_id` Each order should be associated with a valid customer
+* `order_date` field is converted into a valid date format
+* Standardize `order_status` values are reviewed and standardized to ensure consistent classification
+* `total_amount_idr`, `shipping_cost_idr`, and `discount_amount_idr` are checked for appropriate numeric data types
+* Categorical fields such as `payment_method`, `promo_code`, `courier`, `shipping_city`, and `shipping_province` are standardized to ensure that differences in capitalization, spacing, or naming do not create artificial categories
+
+---
+
+#### 2.3.4 Order Items Table
+
+The `order_items` table provides the product-level details of each transaction., it contains:
+
+* `item_id`
+* `order_id`
+* `product_id`
+* `quantity`
+* `unit_price_idr`
+* `subtotal_idr`
+
+This table is particularly important for calculating product-level revenue and revenue loss.
+
+The preparation focuses on ensuring that:
+
+* Each `item_id` should uniquely identify an order_item record
+* Every `order_id` in `order_items` should correspond to an order in the `orders` table
+* Every `product_id` in `order_items` should correspond to a valid product in the `products` table
+* The `quantity` field is checked to ensure that values are numeric and logically valid
+* `unit_price_idr` is checked to ensure that it contains valid numeric values.
+* `sub_total_idr` field is checked to ensure that values are numeric and logically valid. The validated `subtotal_idr` is then used as the primary basis for product-level revenue analysis where appropriate.
+
+---
+
+#### 2.3.5 Reviews Table
+
+The `reviews` table contains:
+
+* `review_id`
+* `order_id`
+* `product_id`
+* `customer_id`
+* `rating`
+* `review_text`
+* `review_date`
+* `helpful_count`
+
+Although reviews are not the primary source for revenue calculation, they can provide additional context for investigating product performance.
+
+The preparation includes:
+
+* Validating unique `review_id`
+* Validating `order_id`
+* Validating `product_id`
+* Validating `customer_id`
+* Standardizing `rating`
+* Converting `review_date` to a valid date
+* Checking missing values
+* Checking rating ranges
+* Identifying duplicate reviews
+
+---
+
+### 2.4 Handling Missing Values
+
+Missing values are assessed according to their business meaning rather than automatically removed.
+
+Different fields require different approaches.
+
+For example:
+
+* A missing `promo_code` may represent an order without a promotion rather than missing information.
+* A missing `phone` number may not affect revenue analysis.
+* A missing `customer_id` in an order may represent a referential integrity issue.
+* A missing `product_id` in `order_items` may prevent product-level analysis.
+* A missing `order_status` can significantly affect revenue classification and therefore requires investigation.
+
+Therefore, missing-value treatment is determined based on the analytical role of each field.
+
+This prevents unnecessary deletion of valid business records while protecting critical calculations from incomplete data.
+
+---
+
+### 2.5 Handling Duplicate Records
+
+Duplicate records are investigated at both the table and transaction levels.
+
+The primary keys used for validation include:
+
+| Table       | Primary Key   |
+| ----------- | ------------- |
+| Customers   | `customer_id` |
+| Products    | `product_id`  |
+| Orders      | `order_id`    |
+| Order Items | `item_id`     |
+| Reviews     | `review_id`   |
+
+Duplicates are particularly important in the `orders` and `order_items` tables because duplicate transactions could result in overstated revenue.
+
+The objective is not simply to remove every repeated value, because repeated `order_id` values in `order_items` are expected when one order contains multiple products.
+
+For example:
+
+```text
+order_id = 1001
+    ├── Product A
+    ├── Product B
+    └── Product C
 ```
----
 
-## 4. Data Modeling
+This is a valid one-to-many relationship rather than duplicate data.
 
-The dataset was structured using a **dimensional data model** based on the **Star Schema** approach in Power BI. The model separates transactional data from descriptive attributes, allowing the dashboard to perform analysis across different business dimensions such as products, stores, and time.
-
-The data model consists of:
-
-- **Fact Table:** `Sales`
-- **Dimension Tables:** `Products`, `Store`, and `Calendar`
-- **Measure Table:** `Measure`
-
-<img src="images/data_model.png" alt="Data Model" width="500">
+Therefore, duplicate detection is performed based on the appropriate grain of each table.
 
 ---
 
-### 4.1 Fact Table - Sales
-The **Sales** table serves as the central fact table of the model. It contains transactional-level sales records and the foreign keys required to connect each transaction to the corresponding dimensions.
+### 2.6 Data Type Standardization
 
-| Column          | Description                                                  |
-| --------------- | ------------------------------------------------------------ |
-| `Sales Key`     | Unique identifier for each sales record                      |
-| `Order Number`  | Identifier of the customer order                             |
-| `Line Item`     | Identifies individual line items within an order             |
-| `Order Date`    | Date when the order was placed                               |
-| `Delivery Date` | Date when the order was delivered                            |
-| `CustomerKey`   | Identifier linking sales transactions to customers           |
-| `ProductKey`    | Foreign key linking transactions to the `Products` dimension |
-| `StoreKey`      | Foreign key linking transactions to the `Store` dimension    |
-| `Quantity`      | Number of products sold                                      |
-| `Currency Code` | Currency associated with the transaction                     |
+Consistent data types are established before analysis.
 
-The Sales table acts as the many-side (*) of the relationships with the dimension tables because multiple sales transactions can belong to the same product, store, or date.
+#### Date fields
 
----
+Converted to date format:
 
-### 4.2 Dimension Table
-#### 4.2.1 Products
-The Products table contains descriptive information about the products sold by the company.
-Important attributes include:
+* `registration_date`
+* `order_date`
+* `review_date`
 
-- ProductKey
-- Product Name
-- Brand
-- Category
-- CategoryKey
-- Subcategory
-- SubcategoryKey
-- Color
-- Unit Cost USD
-- Unit Price USD
+#### Numeric fields
 
-This dimension enables product-oriented analysis, such as:
+Converted to numeric format:
 
-- Revenue by category
-- Revenue by product
-- Revenue by brand
-- Product performance
-- Profitability by category or subcategory
+* `price_idr`
+* `stock`
+* `avg_rating`
+* `total_amount_idr`
+* `shipping_cost_idr`
+* `discount_amount_idr`
+* `quantity`
+* `unit_price_idr`
+* `subtotal_idr`
+* `rating`
+* `helpful_count`
 
-Using a separate product dimension also prevents repetitive product descriptions from being stored in every transactional record.
+#### Categorical fields
 
----
+Standardized as dimensions:
 
-#### 4.2.2 Store
+* `gender`
+* `age_group`
+* `category`
+* `sub_category`
+* `brand`
+* `material`
+* `payment_method`
+* `order_status`
+* `promo_code`
+* `courier`
+* `city`
+* `province`
 
-The Store table contains descriptive information about the store or sales location associated with each transaction.
-
-The table contains attributes such as:
-
-- id
-- country
-- states
-- IsOnline
-
-These attributes allow the dashboard to analyze sales performance across different geographical and sales-channel dimensions.
-
-For example, the IsOnline attribute can be used to distinguish between online and offline transactions, while country and states support geographical analysis.
+Correct data types ensure that **Tableau** can correctly aggregate numerical measures, filter categorical dimensions, and generate time-based analysis.
 
 ---
 
-#### 4.2.3 Calendar
+### 2.11 Data Integration
 
-The Calendar table serves as the date dimension of the model. Rather than relying directly on the date column in the Sales fact table for time-based analysis, a dedicated calendar table provides a consistent structure for temporal analysis and Power BI time-intelligence calculations.
+After individual tables have been cleaned and validated, the datasets are connected based on their relational keys.
 
-The table contains fields such as:
+The primary relationships are:
 
-- Date
-- Day Name
-- Month Name
-- Quarter
-- Week of Month
-- Week of Year
-- Year
-
----
-
-### 4.3 Measure Table
-
-The Measure table is a dedicated table used to organize and store DAX measures separately from the underlying data tables.
-
-The current model contains measures such as:
-
-- Revenue
-```DAX
-Revenue = SUMX(Sales, Sales[Quantity] * RELATED(Products[Unit Price USD]))
-```
-- Profit
-```DAX
-Profit = SUMX(Sales, Sales[Quantity] * (RELATED(Products[Unit Price USD]) - RELATED(Products[Unit Cost USD])))
-```
-- Moving Average (25 Days)
-```DAX
-Moving Average (25 Days) = 
-AVERAGEX(
-    DATESINPERIOD(
-        'Calendar'[Date],
-        MAX('Calendar'[Date]),
-        -25,
-        DAY
-    ),
-    [Profit]
-)
+```text
+customers
+    │
+    │ customer_id
+    ▼
+orders
+    │
+    │ order_id
+    ▼
+order_items
+    │
+    │ product_id
+    ▼
+products
 ```
 
-These measures are not stored as physical columns in the transactional data. Instead, they are calculated dynamically using DAX based on the current filter context.
+The `reviews` table is connected through:
+
+```text
+reviews
+    ├── customer_id → customers
+    ├── order_id    → orders
+    └── product_id  → products
+```
+
+This relational structure allows transaction-level revenue loss to be analyzed against multiple business dimensions without unnecessarily duplicating data.
+
 
 ---
 
