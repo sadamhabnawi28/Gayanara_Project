@@ -499,30 +499,7 @@ After individual tables have been cleaned and validated, the datasets are connec
 
 The primary relationships are:
 
-```text
-customers
-    │
-    │ customer_id
-    ▼
-orders
-    │
-    │ order_id
-    ▼
-order_items
-    │
-    │ product_id
-    ▼
-products
-```
-
-The `reviews` table is connected through:
-
-```text
-reviews
-    ├── customer_id → customers
-    ├── order_id    → orders
-    └── product_id  → products
-```
+![Data Relationship Preview](images/data_relation.png)
 
 This relational structure allows transaction-level revenue loss to be analyzed against multiple business dimensions without unnecessarily duplicating data.
 
