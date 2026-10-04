@@ -522,102 +522,34 @@ This is arguably the strongest positive finding in the entire trend analysis. It
 
 ---
 
-### Finding 2 - Revenue is strongly concentrated in a small number of product categories
+### Finding 2 - 
 
-![Revenue By Category](images/rev_cat.png)
-
-| Category                      | Revenue  | Profit Margin |
-| ------------------------------| ---------| --------------|
-| Computers                     | $19.30 M | 58.4%        |
-| Home Appliances               | $10.80 M | 58.3%        |
-| Cameras and camcorders        | $6.52 M  | 60.1%        |
-| Cell phones                   | $6.18 M  | 56.6%        |
-| TV and Video                  | $5.93 M  | 59.7%        |
-| Audio                         | $3.17 M  | 57.7%        |
-| Music, Movies and Audio Books | $3.13 M  | 61.0%        |
-| Games and Toys                | $0.72 M  | 54.7%        |
-
-
-**Insight:**   
-`Computers` is the largest revenue contributor at **$19.30M (34.6%)**, followed by `Home Appliances` at **$10.80M (19.4%)**. Together, these two categories account for approximately **54%** of total revenue, indicating that overall sales performance is highly influenced by their performance. Meanwhile, `Cameras and camcorders`, `Cell phones`, and `TV and Video` each contribute approximately **10–12%**, providing additional but smaller revenue streams. At the lower end, Games and Toys contributes only **1.3%**, making it the smallest revenue-generating category.
-
-Profit margins across product categories range from **54.7% to 61.0%**, indicating relatively consistent profitability across the portfolio. `Music, Movies and Audio Books` records the highest margin at **61.0%**, followed by `Cameras and camcorders` at **60.1%** and `TV and Video` at **59.7%**. Meanwhile, `Games and Toys` has the lowest margin at **54.7%**.
-
-
-**Why it matters**:   
-`Computers` and `Home Appliances` represents significant source of both revenue and profit. Together these categories contributes a substantial portion of the company's overall financial performance. Because a substantial portion of company revenue and estimated profit comes from these categories, changes in its sales performance can have a meaningful impact on overall business results. From a business perspective, management needs to monitor these categories not only in terms of sales growth but also margin stability, inventory availability, product mix, and demand trends to ensure that growth does not come at the expense of profitability.
-
-On the other hand, the revenue distribution suggests that management should simultaneously protect the performance of the company's major revenue drivers while investigating growth opportunities and underlying performance factors in lower-contributing categories.
-
-The high profit margin of `Music, Movies and Audio Books` indicates that the category generates a relatively large amount of profit from each dollar of revenue. However, its relatively small revenue contribution limits its impact on the company's total profit. From a business perspective, this creates a potential growth opportunity. If the company can increase sales in this category while maintaining its current margin level, the category could make a larger contribution to overall profitability. Management could therefore investigate whether the category's relatively low revenue is driven by limited product assortment, lower customer demand, distribution reach, or sales volume.
-
-The low contribution of `Games and Toys` to both revenue and profit margin creates a need to understand the underlying causes of the category's performance before deciding how it should be managed. If the performance is caused by limited demand, the company may need to reconsider its product strategy. If it is caused by limited assortment, distribution, or promotional exposure, there may be opportunities to improve performance. The key business consideration is therefore whether the category represents a growth opportunity or a relatively low-priority segment based on its potential and underlying economics.
 
 ---
 
-### Finding 3 - The channel mix indicates different roles within the revenue portfolio
+### Finding 3 - 
 
-![Revenue By Channel](images/rev_chan.png)
 
-**Insight:**   
-The `Offline` sales is the company's dominant revenue channel, generating approximately **$44.35M** or **79.5%** of total revenue, compared with **$11.40M** or **20.5%** from `online` transactions. This means the company currently relies heavily on its `offline` channel as its primary revenue engine, with `offline` revenue approximately 3.9 times larger than `online` revenue.
-
-**Why It Matters**:   
-The strong concentration of revenue in the `offline` channel means that `offline` performance has a substantially greater impact on the company's overall financial performance. A **10%** change in `offline` revenue would represent approximately **$4.44M**, compared with **$1.14M** for an equivalent change in `online` revenue. At the same time, the **$11.40M** contribution from `online` transactions indicates that digital sales already represent a meaningful component of the company's revenue portfolio. Therefore, channel performance should be evaluated not only based on revenue contribution, but also in terms of profitability, customer behavior, transaction volume, and operating economics to understand the role and business value of each channel.
 
 ---
 
-### Finding 4 - The United States is the dominant profit market
+### Finding 4 - 
 
-![Profit By Country Preview](images/prof_count.png)
-
-**Insight:**   
-The company generated approximately **$25.99M** in profit across eight countries, with `the United States` contributing **$13.92M** or **53.6%** of total profit. This makes the `US` the company's dominant geographic profit engine and indicates a significant concentration of profitability in a single market. The `United Kingdom`, `Germany`, and `Canada` form a meaningful secondary profit base, collectively contributing approximately **30.6%** of total profit. Meanwhile, `Australia`, `Italy`, `the Netherlands`, and `France` each contribute less than **5%** individually.
-
-Profit margins across the eight markets are remarkably consistent, ranging from **58.26%** in `Canada` to **59.24%** in `Australia`, representing a relatively narrow spread of approximately **0.98** percentage points. `Australia` records the highest observed profit margin at **59.24%**, followed by France at **58.98%** and `the Netherlands` at **58.93%**. Meanwhile, `Canada` records the lowest margin at **58.26%**. Despite these differences, the relatively narrow margin range indicates that geographic differences in absolute profit are not primarily explained by substantial variations in margin. This becomes particularly evident when comparing `the United States` and `Australia`. `The United States` generates approximately **$13.92M** in profit, compared with **$1.24M** in `Australia`, despite their margins being relatively close at **58.58%** and **59.24%**, respectively. This suggests that business scale and revenue volume play a much larger role in determining absolute profit contribution than small differences in margin.
-
-**Why It Matters:**   
-The concentration of profit in the `United States` means that its performance has a substantial impact on overall company profitability. At the same time, absolute profit alone does not indicate market efficiency or growth potential. Further analysis combining country, revenue, profit margin, product category, channel, and time trends is required to understand the underlying drivers of geographic profitability.
 
 ---
 
 ## 7. Strategic Recommendations
 
-### 7.1 Product Category Strategy
-
-1. `Computers` and `Home Appliances` should remain key priorities because they collectively generate approximately **54% of total revenue** and represent a substantial share of estimated profit. Management should focus on maintaining product availability, optimizing inventory, monitoring product-level profitability, and developing targeted promotions. Because of their large revenue base, relatively small improvements in these categories can have a meaningful impact on overall business performance. For example, a **10%** increase in Computers revenue at the current margin would represent approximately **$1.93M in additional revenue** and around **$1.13M in additional profit**.
-
-2. `Cameras and camcorders`, `TV and Video`, and `Music, Movies and Audio Books` demonstrate relatively strong profit margins. The company should explore opportunities to increase their revenue contribution through broader product assortment, targeted marketing, cross-selling, product bundling, and improved channel exposure while maintaining margin discipline. The objective is to convert strong category-level profitability into greater absolute profit contribution.
-
-3. `Cell Phones` generates approximately **$6.18M in revenue** but has a comparatively lower profit margin of **56.58%**. Rather than focusing exclusively on increasing sales volume, management should investigate pricing, discounting, product mix, and brand-level profitability. Cross-selling accessories and complementary products can also increase revenue and profit per transaction. A 1 percentage-point improvement in margin on the current revenue base would represent approximately **$61.8K in additional profit**, assuming revenue remains constant.
-
-4. `Games and Toys` has the lowest revenue and lowest profit margin in the sales portfolio. Before making major portfolio decisions, management should investigate the underlying drivers of its performance, including sales volume, SKU availability, pricing, promotional exposure, inventory turnover, and seasonality. The objective is to determine whether the category represents an opportunity for improvement or should receive a lower level of strategic investment.
-
-5. The company can increase customer basket value by creating complementary product bundles across categories. This strategy can increase revenue per transaction while reducing reliance on customer acquisition as the sole driver of revenue growth. Examples include:
-
-    - Computers + accessories
-    - Smartphones + accessories
-    - TVs + audio equipment
-    - Cameras + memory cards and accessories
+### 
 
 ---
 
-### 7.2 Sales Channel Strategy
+### 
 
-The company's revenue is currently highly concentrated in the offline channel, which contributes approximately 79.5% of total revenue, while the online channel contributes 20.5%. Therefore, the strategic priority should not be to replace the offline channel with online, but to protect the existing offline revenue base while developing online as a scalable growth channel.
-
-1. The company should protect and optimize its offline revenue engine because changes in offline performance have a substantially larger impact on total revenue. Operational initiatives should focus on maintaining store productivity, product availability, customer experience, and performance across locations.
-
-2. The company should develop the online channel as a growth engine. With approximately $11.40M in revenue, online sales already represent a meaningful part of the business and provide a foundation for further digital growth. However, online expansion should be evaluated based on profitability and customer economics rather than revenue growth alone.
-
-3. The company should adopt an omnichannel strategy that connects online and offline customer journeys. Initiatives such as Click & Collect, Ship From Store, unified loyalty programs, online-to-offline engagement, and offline-to-online customer acquisition can allow both channels to complement rather than compete with each other.
-
-4. Management should establish channel-level performance monitoring covering revenue, profit, margin, AOV, customer acquisition cost, conversion rate, repeat purchase, and customer lifetime value. This would enable the company to distinguish genuine incremental online growth from revenue that is simply shifting from offline to online.
 
 ---
 
-### 7.3 Geographic Strategy
+### 
 
-Geographic strategy should focus on protecting the United States as the company's core profit engine while developing secondary markets through sustainable, margin-conscious growth. Given the relatively narrow 58–59% profit margin range across countries, differences in absolute profit appear to be driven more by business scale than by major margin variations. Therefore, management should prioritize profitable revenue growth, maintain margin discipline, investigate the drivers behind high-margin markets such as Australia, France, and the Netherlands, and strengthen the performance of meaningful secondary markets such as the UK, Germany, and Canada.
 
 ---
