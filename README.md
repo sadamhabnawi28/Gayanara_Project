@@ -62,9 +62,7 @@ The primary business problem addressed in this project is:
 
 > **Gayanara lacks visibility into the magnitude, distribution, and characteristics of revenue loss resulting from cancelled and returned orders.**
 
-The analysis focuses specifically on **actual historical revenue loss observed in the dataset**.
-
-This distinction is important because those situations represent **potential or estimated revenue opportunities**, whereas cancelled and returned orders are directly observable in the available transactional data.
+The analysis focuses specifically on **actual historical revenue loss observed in the dataset**. This distinction is important because those situations represent **potential or estimated revenue opportunities**, whereas cancelled and returned orders are directly observable in the available transactional data.
 
 #### Revenue Loss Scope
 
@@ -72,11 +70,7 @@ Within this project, revenue loss is examined through two primary transaction ou
 
 ##### 1. Cancelled Order Revenue
 
-Revenue associated with orders whose status is classified as **cancelled**.
-
-These transactions represent orders that did not proceed to a successful completed purchase.
-
-The analysis investigates:
+Revenue associated with orders whose status is classified as **cancelled**. These transactions represent orders that did not proceed to a successful completed purchase. The analysis investigates:
 
 $$
 Cancelled\ Revenue =
@@ -87,11 +81,7 @@ depending on the revenue definition established for the dataset.
 
 ##### 2. Returned Order Revenue
 
-Revenue associated with orders whose status is classified as **returned**.
-
-These transactions represent purchases that were subsequently returned and therefore do not represent retained sales in the same way as successfully completed orders.
-
-The analysis investigates:
+Revenue associated with orders whose status is classified as **returned**. These transactions represent purchases that were subsequently returned and therefore do not represent retained sales in the same way as successfully completed orders. The analysis investigates:
 
 $$
 Returned\ Revenue =
