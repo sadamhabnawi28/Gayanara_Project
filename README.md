@@ -499,6 +499,14 @@ This relational structure allows transaction-level revenue loss to be analyzed a
 
 ### Finding 1 - Gayanara experienced strong and sustained revenue growth throughout the observation period
 
+Monthly Realized Revenue
+
+![Realized Revenue Preview](images/realized_rev_trend.png)
+
+Monthly Loss Revenue
+
+![Loss Revenue Preview](images//loss_rev_trend.png)
+
 **Insight 1:**   
 The monthly trend shows a clear long-term growth trajectory in Gayanara's realized net revenue. Realized revenue increased from **Rp21.34 million** in **January 2022** to **Rp65.61 million** in **February 2025**, meaning the monthly realized revenue at the end of the observation period was more than three times the level recorded at the beginning of the period. The growth was not linear, however, as the business experienced considerable month-to-month fluctuations. During 2022, realized revenue generally remained below **Rp21 million per month**, with the lowest point occurring in **June 2022** at **Rp9.67 million**. Revenue then increased substantially in **2023**, reaching **Rp45.23 million** in **January 2023**, and continued to develop at a higher level throughout **2024**, when monthly realized revenue frequently exceeded **Rp40 million**. The highest monthly realized revenue was recorded in **February 2025** at **Rp65.61 million**.
 
