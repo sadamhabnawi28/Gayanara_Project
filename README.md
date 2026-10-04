@@ -181,8 +181,8 @@ The Gayanara Revenue Loss Analysis project uses five interconnected datasets rep
 | --------------- | --------- |------------------------------------------------------------------- | ---------------------------------------------------- |
 | **customers**   | Dimension | Customer demographic and registration information                  | `customer_id`                                        |
 | **products**    | Dimension | Product attributes, pricing, inventory, and product classification | `product_id`                                         |
-| **orders**      | Dimension      | Order-level transaction and operational information                | `order_id`                                           |
-| **order_items** | Fact | Product-level details for each order                               | `item_id`, `order_id`, `product_id`                  |
+| **orders**      | Dimension | Order-level transaction and operational information                | `order_id`                                           |
+| **order_items** | Fact      | Product-level details for each order                               | `item_id`, `order_id`, `product_id`                  |
 | **reviews**     | Dimension | Customer reviews and ratings associated with products and orders   | `review_id`, `order_id`, `product_id`, `customer_id` |
 
 ---
@@ -474,7 +474,7 @@ After individual tables have been cleaned and validated, the datasets are connec
 
 The primary relationships are:
 
-![Data Relationship Preview](images/data_relation.png)
+<img src="images/data_relation.png" alt="Data Model" width="500">
 
 This relational structure allows transaction-level revenue loss to be analyzed against multiple business dimensions without unnecessarily duplicating data.
 
