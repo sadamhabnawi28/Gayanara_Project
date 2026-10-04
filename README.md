@@ -522,8 +522,9 @@ This is arguably the strongest positive finding in the entire trend analysis. It
 
 ---
 
-### Finding 2 - 
+### Finding 2 - Cancellations are the primary source of revenue loss, but the contribution of returns is becoming increasingly significant.
 
+Overall, between **January 2022** and **February 2025**, Gayanara recorded a total revenue loss of approximately **Rp225.42 million** due to cancelled and returned orders. Of this amount, **Rp146.79 million** (roughly **65.1%**) stemmed from **cancelled orders**, while **Rp78.63 million** (roughly **34.9%**) resulted from **returned orders**. Thus, cancellations represented the dominant source of revenue leakage overall. However, this composition did not remain constant throughout the period. In **2022**, cancellations accounted for approximately **70.2%** of the total loss, whereas returns made up only about **29.8%**. The composition remained relatively stable in **2023**, with cancellations at around **69.5%** and returns at approximately **30.5%**. By **2024**, the contribution of cancellations had dropped to **63.1%**, while returns rose to **36.9%**. In the first two months of **2025**, the pattern even reversed, returns accounted for approximately **53.2%** of the revenue loss, while cancellations accounted for about **46.8%**.
 
 ---
 
