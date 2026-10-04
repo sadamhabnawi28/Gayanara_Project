@@ -100,9 +100,7 @@ This objective can be divided into several specific objectives.
 
 #### Objective 1 - Understand Revenue Loss Trends
 
-Analyze how cancellation, return, and revenue loss change over time. This allows Gayanara to determine whether revenue loss is a persistent issue or concentrated within particular periods.
-
-The analysis can identify:
+Analyze how cancellation, return, and revenue loss change over time. This allows Gayanara to determine whether revenue loss is a persistent issue or concentrated within particular periods. The analysis can identify:
 
 * periods with unusually high revenue loss,
 * monthly or weekly trends,
