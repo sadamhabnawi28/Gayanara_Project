@@ -524,11 +524,11 @@ This is arguably the strongest positive finding in the entire trend analysis. It
 
 ### Finding 2 - Cancellations are the primary source of revenue loss, but the contribution of returns is becoming increasingly significant.
 
-Monthly Loss Revenue from Cancelled Orders
+Monthly Loss Revenue from **Cancelled Orders**
 
 ![Realized Revenue Preview](images/cancel_rev_trend.png)
 
-Monthly Loss Revenue from Returnd Orders
+Monthly Loss Revenue from **Returned Orders**
 
 ![Loss Revenue Preview](images/return_rev_trend.png)
 
@@ -536,6 +536,19 @@ Monthly Loss Revenue from Returnd Orders
 Overall, between **January 2022** and **February 2025**, Gayanara recorded a total revenue loss of approximately **Rp225.42 million** due to cancelled and returned orders. Of this amount, **Rp146.79 million** (roughly **65.1%**) stemmed from **cancelled orders**, while **Rp78.63 million** (roughly **34.9%**) resulted from **returned orders**. Thus, cancellations represented the dominant source of revenue leakage overall. However, this composition did not remain constant throughout the period. In **2022**, cancellations accounted for approximately **70.2%** of the total loss, whereas returns made up only about **29.8%**. The composition remained relatively stable in **2023**, with cancellations at around **69.5%** and returns at approximately **30.5%**. By **2024**, the contribution of cancellations had dropped to **63.1%**, while returns rose to **36.9%**. In the first two months of **2025**, the pattern even reversed, returns accounted for approximately **53.2%** of the revenue loss, while cancellations accounted for about **46.8%**.
 
 This finding shows that Gayanara's revenue leakage is not solely a cancellation problem. Although cancellations have historically been the largest source of revenue loss, returns are becoming increasingly important as a source of financial leakage. This distinction matters because cancellation and return occur at different stages of the customer journey. Cancellations generally occur before an order is successfully completed, while returns occur after the order has progressed further through fulfillment and has typically reached the customer. Therefore, the two types of loss may require different investigative approaches and corrective actions.
+
+**Insight 2:**   
+In **2022**, Gayanara recorded approximately **Rp27.07 million** in **cancelled revenue** and **Rp11.50 million** in **returned revenue**, resulting in total revenue loss of approximately **Rp38.57 million**. In **2023**, **cancelled revenue** increased to approximately **Rp57.38 million**, while **returned revenue** increased to approximately **Rp25.19 million**. As a result, total revenue loss increased to approximately **Rp82.57 million**. Year over year, **cancelled revenue** increased by approximately **112%**, while **returned revenue** increased by approximately **119.1%**. Total revenue loss increased by approximately **114.1%**.
+
+This indicates that Gayanara's business expansion in **2023** was accompanied by a scaling of revenue leakage across both cancellation and return. This is consistent with the previous finding that **2023** was a period of significant business expansion, but the growth in business volume was not accompanied by a meaningful improvement in revenue retention efficiency. Interestingly, returned revenue grew slightly faster than cancelled revenue. This means that as Gayanara expanded in **2023**, its exposure to returns also grew rapidly.
+
+**Insight 3:**   
+The year **2024** presents a particularly interesting pattern. Total revenue loss remained almost unchanged compared with **2023** with only approximately **0.4%** year-over-year loss growth. However, the composition of that loss changed significantly. **Cancelled revenue** declined from approximately **Rp57.38 million** in **2023** to **Rp52.35 million** in **2024**, representing a decrease of approximately **8.8%**. In contrast, **returned revenue** increased from approximately **Rp25.19 million** to **Rp30.59 million**, representing an increase of approximately **21.4%**. Therefore, total revenue loss remained relatively stable because the decline in cancellation almost offset the increase in returns.
+
+This is one of the most important business findings in the analysis. At an aggregate level, management might conclude that Revenue loss in **2024** was almost the same as in **2023**. However, this conclusion would hide an important change underneath the total. What actually happened was that Cancellation improved, but the return problem became more significant. This represents a shift in the composition of revenue leakage. Gayanara may have experienced improvement in the factors associated with cancellation, while a larger portion of revenue leakage shifted toward returns.
+
+**Insight 4:**   
+The most significant shift occurred in **January** and **February 2025**, that **returned revenue** accounted for approximately **53.2%** of total revenue loss, compared with **46.8%** from **cancellations**. This is an important **warning signal** for Gayanara. Throughout 2022–2024, cancellation consistently remained the dominant source of revenue loss. However, in early 2025, returns overtook cancellations as the largest source of revenue leakage. This suggests that the nature of Gayanara's revenue leakage may be changing. Because returns occur further along the fulfillment and customer journey.
 
 ---
 
