@@ -554,7 +554,7 @@ The most significant shift occurred in **January** and **February 2025**, that *
 
 ### Finding 3 - 
 
-
+![Gender Preview](images/gender_rev.png)
 
 ---
 
