@@ -556,7 +556,7 @@ The most significant shift occurred in **January** and **February 2025**, that *
 
 ![Gender Preview](images/gender_rev.png)
 
-**Insight 1:**   
+**Insight:**   
 Female customers generated approximately **Rp710.42 million** in realized revenue compared with **Rp535.09 million** from male customers. This means female customers contributed approximately **57%** of total realized revenue, while male customers contributed approximately **43%**. This difference is closely aligned with order volume. Female customers generated **1,711 orders**, representing approximately **57%** of all orders, compared with **1,289 orders** or approximately **43%** from male customers. Interestingly, realized revenue per order is almost identical between the two segments. Female customers generated approximately **Rp415k** of realized revenue per order, while male customers generated approximately Rp415 thousand per order as well. This suggests that the higher realized revenue contribution from female customers is primarily driven by higher transaction volume rather than substantially higher value per order.
 
 From a business perspective, this means female customers represent Gayanara's larger revenue-generating customer base, but it would be inaccurate to conclude that female customers are inherently more valuable on a per-order basis. Female customers generate more total revenue because they place more orders, not because each order generates substantially more realized revenue. Therefore, strategies designed to increase female customer retention, repeat purchases, and order frequency could have a meaningful impact on Gayanara's overall revenue because this segment already represents the majority of transaction volume.
