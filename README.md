@@ -563,9 +563,9 @@ From a business perspective, this means female customers represent Gayanara's la
 
 ---
 
-### Finding 4 - 
+### Finding 4 - Revenue Distribution and Loss Analysis Across Product Category
 
-<img src="images/rev_cat.png" alt="Revenue By Category Preview" width="500">
+![Revenue By Category Preview](images/rev_cat.png)
 
 **Insight:**   
 Gayanara generated approximately **Rp1.25 billion** in completed revenue across seven product categories, while **Rp225.42 million** was associated with cancelled and returned orders, resulting in an overall revenue-loss rate of approximately **15.32%**. `Jacket` recorded the highest absolute revenue loss at **Rp41.46 million**, reflecting its large revenue contribution, while `T-Shirt` recorded the highest loss rate at **16.39%**, indicating greater relative revenue leakage. In contrast, Kaos achieved the lowest loss rate at **12.60%**, while Accessories combined a large revenue base with a below-average loss rate of **14.64%**. These findings highlight the importance of evaluating both absolute loss and loss rate, high-volume categories create greater financial exposure, while high-loss-rate categories may indicate greater revenue-retention challenges. Therefore, `Jacket` and `T-Shirt` should be prioritized for deeper investigation, while Kaos and Accessories can provide useful benchmarks for identifying potential differences in product or transaction characteristics.
