@@ -610,6 +610,8 @@ However, price should not automatically be interpreted as the cause. High-priced
 
 The distinction between cancellation and return is particularly important for identifying where the underlying problem may occur. Cancellation represents a failure that occurs before the order is successfully completed, while a return represents a failure that occurs after the customer has received or interacted with the product. Therefore, the two mechanisms can point toward different operational root causes. The data shows that cancellation is generally the larger contributor to revenue loss, although returns can produce significant spikes in particular months and categories. This suggests that Gayanara should not treat all revenue loss as one homogeneous problem.
 
+---
+
 ## 8. Strategic Recommendations
 
 ### Prioritize High-Loss Products Through a SKU-Level Revenue Loss Management Program
