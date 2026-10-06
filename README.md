@@ -582,11 +582,25 @@ The most striking pattern in the product-level data is that revenue loss is not 
 
 This concentration creates an opportunity for Gayanara to move from broad category-level intervention toward targeted product-level intervention. If a relatively small number of products account for a disproportionate share of revenue loss, investigating those products first can potentially generate a larger business impact than applying a broad intervention across every product. For example, instead of immediately reviewing the entire `Jacket` assortment, management could prioritize products such as `Jacket Denim Tropika Style`, `Jacket Coach Senja Wear`, and `Jaket Parasut Riang Apparel` for deeper investigation. This makes the analysis more actionable because the business can connect the financial impact directly to individual SKUs or products.
 
+---
 
+## 7. Potential Root Causes of Revenue Loss
+
+### Product - Customer Expectation Mismatch
+
+One of the strongest potential root causes is a mismatch between customer expectations and the actual product experience. This is particularly relevant because several products exhibit relatively high return rates, including products such as `Kemeja Linen NusaBrand`, `Celana Kulot Cendana Co`, `Dress Midi Floral NusaBrand`, and `Jacket Coach Senja Wear`. In addition, some products show both relatively high cancellation and return rates, suggesting that the issue may not be limited to customers changing their minds before fulfillment.
+
+This pattern could indicate discrepancies between what customers expect when placing an order and what they ultimately receive or perceive about the product. In fashion e-commerce, such discrepancies can involve size and fit, material, color, appearance, product photography, product description, or perceived quality. For example, a product may appear attractive online but fail to meet the customer's expectations once viewed in person. Although the current dataset does not directly confirm which of these factors is responsible, products with consistently elevated return rates are important candidates for further investigation through review text, product attributes, and return reasons.
+
+The business implication is significant because this type of problem can generate a recurring loss cycle: the company acquires the customer, processes the order, potentially pays fulfillment and shipping costs, and then loses the expected revenue when the product is returned. Therefore, products with persistent return behavior should be evaluated not only based on their sales volume but also on customer feedback, product specifications, and return reasons.
 
 ---
 
-## 7. Strategic Recommendations
+### Pricing and Purchase Decision Friction
+
+Another possible contributor is price-related purchase uncertainty. Some products with relatively high average prices also show meaningful cancellation or return activity. A higher transaction value can increase the financial commitment perceived by customers, potentially making customers more likely to reconsider their purchase after placing an order.
+
+## 8. Strategic Recommendations
 
 ### 
 
