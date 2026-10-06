@@ -612,16 +612,68 @@ The distinction between cancellation and return is particularly important for id
 
 ## 8. Strategic Recommendations
 
-### 
+### Prioritize High-Loss Products Through a SKU-Level Revenue Loss Management Program
+
+The first strategic recommendation is to establish a SKU-level revenue loss management program. The analysis shows that revenue loss is not distributed evenly across Gayanara's product portfolio. Some Products contribute relatively large amounts of cancelled and returned revenue. At the same time, some products exhibit exceptionally high cancellation or return rates. This means the Company should not allocate improvement resources equally across every product. Instead, products should be prioritized using a combination of Total Revenue Loss, Cancellation Rate, Return Rate, Order Volume, and Average Order Value. A product with high absolute loss and high failure rates should receive immediate attention, while a product with low absolute loss but extremely high return rates should be treated as an emerging operational risk.
+
+The business impact of this strategy would be better allocation of operational resources and faster reduction of financial leakage. Rather than attempting to reduce cancellation and return rates across the entire catalog, Gayanara can concentrate its efforts on the products where improvements are likely to generate the greatest financial benefit.
 
 ---
 
-### 
+### Separate Cancellation Management from Return Management
 
+Gayanara should establish two different improvement strategies for cancellations and returns, rather than treating both as one revenue-loss category. The analysis indicates that cancellations generally represent the larger component of revenue loss, while returns can create substantial spikes for particular categories and products. These two mechanisms occur at different stages of the customer journey and therefore require different interventions. For cancellation-heavy products, Gayanara should investigate inventory availability, inventory accuracy, payment confirmation, order processing, and customer purchase commitment. In contrast, return-heavy products should be investigated through product quality, sizing and fit, product descriptions, product images, fulfillment accuracy, and customer expectations.
+
+The expected impact is a more targeted and efficient revenue-loss reduction program. Instead of applying generic policies such as "reduce cancellations and returns," Gayanara can address the operational mechanism most closely associated with each type of loss.
+
+---
+
+### Strengthen Product Information and Fashion-Specific Product Guidance
+
+For return-related losses, Gayanara should improve the quality and completeness of its online product information. Because fashion products cannot be physically inspected before purchase, customers rely heavily on product photographs, descriptions, measurements, material information, color representation, and sizing guides. A mismatch between the customer's expectations and the actual product can therefore increase the probability of returns. Gayanara should strengthen product pages by providing standardized size charts, detailed measurements, material descriptions, multiple product images, model measurements, fit descriptions, and more accurate product specifications. Products with unusually high return rates should be reviewed first. This strategy is particularly relevant to categories such as Jackets, Pants, and Dresses, which contribute substantial revenue loss. Product-level analysis should determine whether specific attributes such as material, sub-category, brand, or price range are systematically associated with higher return rates.
+
+The expected business impact is a reduction in avoidable returns and reverse-logistics costs, while simultaneously improving customer confidence before purchase. Importantly, better product information can potentially reduce returns without requiring Gayanara to reduce product sales or customer acquisition.
 
 ---
 
-### 
+### Establish a Product Quality and Supplier Performance Program
 
+Gayanara should also introduce a product and supplier quality monitoring framework. If multiple products from the same brand or supplier consistently show elevated return rates, the issue may extend beyond individual SKUs. For example, Gayanara could calculate return rate, cancellation rate, revenue loss, customer ratings, and review sentiment at the brand and supplier level. Suppliers with consistently poor performance could then be subject to additional quality checks, corrective actions, or commercial renegotiation. This strategy is particularly valuable because revenue loss does not only represent lost sales. Every return can potentially generate additional costs associated with reverse logistics, inspection, repackaging, inventory handling, customer service, and potential product depreciation. The business impact would therefore extend beyond revenue recovery. Improving supplier and product quality could improve customer satisfaction, product ratings, repeat purchase potential, and operational efficiency.
 
 ---
+
+### Introduce a Customer Retention Strategy After Successful Problem Resolution
+
+Revenue-loss reduction should not be pursued at the expense of customer relationships. A customer who experiences a return should not automatically be treated as a problematic customer. Instead, Gayanara should distinguish between legitimate returns and problematic behavioral patterns. If a customer experiences a legitimate product issue, the appropriate response may be better customer service, replacement, exchange, or personalized product recommendations. The goal should be to reduce avoidable returns, not to eliminate returns entirely. This distinction is strategically important because aggressive return restrictions may reduce short-term revenue loss but potentially damage customer trust and future revenue. A better strategy is to reduce the underlying causes of unnecessary returns while maintaining a customer-friendly experience. The expected impact is therefore not only lower revenue loss but potentially higher customer satisfaction and long-term customer lifetime value.
+
+---
+
+### Strategic Priority Matrix
+
+| Strategic Initiative                     | Primary Problem Addressed              | Expected Business Impact       | Priority        |
+| ---------------------------------------- | -------------------------------------- | ------------------------------ | --------------- |
+| SKU-level loss prioritization            | Loss concentrated in specific products | Faster financial impact        | **Very High**   |
+| Cancellation vs. return separation       | Different loss mechanisms              | More targeted interventions    | **Very High**   |
+| Product information & sizing improvement | Customer expectation mismatch          | Fewer avoidable returns        | **Very High**   |
+| Product/supplier quality monitoring      | Product-related returns                | Lower returns + better quality | **High**        |
+| Promotion optimization                   | Potential promotion-driven loss        | Better net revenue quality     | **Medium–High** |
+| Customer segmentation                    | Different risk profiles                | More targeted interventions    | **Medium–High** |
+| Continuous loss monitoring               | Recurring/repeated problems            | Sustainable improvement        | **Very High**   |
+
+---
+
+
+## License
+
+This project is licensed under the [MIT License]({{ '/license/' | relative_url }}). You are free to use, modify, and share this project with proper attribution.
+
+## About Me
+
+Hi there! I'm **Sadam Habnawi**. I'm a physics fresh graduate, i have a great enthusiasm in the field of data including data analytics, engineering, and data science!
+
+Let's stay in touch! Feel free to connect with me on the following platforms:
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](http://www.linkedin.com/in/sadam-habnawi-7621011b4)
+
+---
+
