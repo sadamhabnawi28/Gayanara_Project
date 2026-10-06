@@ -575,9 +575,9 @@ Gayanara generated approximately **Rp1.25 billion** in completed revenue across 
 
 ### Finding 5 - Revenue loss is highly concentrated in a relatively small number of products
 
-
 ![Product Preview](images/product.png)
 
+**Insight:**   
 The most striking pattern in the product-level data is that revenue loss is not evenly distributed across products. Several products generate substantially larger losses than the majority of products in their respective categories. The strongest example is `Jacket`, where `Jacket Denim Tropika Style` records approximately **Rp5.32 million** in revenue loss, substantially higher than most other `Jacket` products. Other major contributors include `Celana Jeans Slim SandangIndo` at approximately **Rp4.90 million**, `Dress Wrap Pesona Indo` at approximately **Rp4.10 million**, `Dress Mini Casual SandangIndo` at approximately **Rp4.09 million**, `Topi Baseball Kanvas Lokal` at approximately **Rp3.93 million**, and `Dompet Kulit Pesona Indo` at approximately **Rp3.60 million**.
 
 This concentration creates an opportunity for Gayanara to move from broad category-level intervention toward targeted product-level intervention. If a relatively small number of products account for a disproportionate share of revenue loss, investigating those products first can potentially generate a larger business impact than applying a broad intervention across every product. For example, instead of immediately reviewing the entire `Jacket` assortment, management could prioritize products such as `Jacket Denim Tropika Style`, `Jacket Coach Senja Wear`, and `Jaket Parasut Riang Apparel` for deeper investigation. This makes the analysis more actionable because the business can connect the financial impact directly to individual SKUs or products.
