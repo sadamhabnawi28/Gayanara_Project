@@ -600,6 +600,16 @@ The business implication is significant because this type of problem can generat
 
 Another possible contributor is price-related purchase uncertainty. Some products with relatively high average prices also show meaningful cancellation or return activity. A higher transaction value can increase the financial commitment perceived by customers, potentially making customers more likely to reconsider their purchase after placing an order.
 
+The AOV analysis also provides an indication that the financial value of unsuccessful transactions differs across customer segments. For instance, some segments have substantially higher average values for cancelled or returned orders than others. This means that even when a segment does not have the highest number of unsuccessful transactions, it can still create substantial revenue exposure because each failed transaction has a larger financial value.
+
+However, price should not automatically be interpreted as the cause. High-priced products may simply attract more attention, have higher order values, or belong to categories with different purchasing characteristics. To validate this hypothesis, Gayanara would need to analyze price bands, discount levels, competitor prices, customer purchase history, and cancellation timing relative to the purchase.
+
+---
+
+### Operational Process Gaps Between Order Placement and Fulfillment
+
+The distinction between cancellation and return is particularly important for identifying where the underlying problem may occur. Cancellation represents a failure that occurs before the order is successfully completed, while a return represents a failure that occurs after the customer has received or interacted with the product. Therefore, the two mechanisms can point toward different operational root causes. The data shows that cancellation is generally the larger contributor to revenue loss, although returns can produce significant spikes in particular months and categories. This suggests that Gayanara should not treat all revenue loss as one homogeneous problem.
+
 ## 8. Strategic Recommendations
 
 ### 
